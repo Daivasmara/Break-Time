@@ -2,7 +2,7 @@
 
 Created with only Vue.js!
 
-A simple app to reminds you to take a break every now and then! It'll open your selection of youtube video in a new tab, so please turn off pop-up blocker for this application tab only in your browser.
+A simple app to reminds you to take a break every now and then! It'll open your selection of youtube video in a new tab, so please turn off pop-up blocker for this application tab only in your browser. You can try it live on https://dist-zxdnhnqlku.now.sh
 
 ## What You Can Do
 
