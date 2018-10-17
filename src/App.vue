@@ -24,7 +24,7 @@
         <a
           v-else
           @click="stop"
-          class="waves-effect waves-light btn-large"
+          class="waves-effect waves-light btn-large red"
         >
           Stop
           <i
@@ -33,6 +33,14 @@
             stop
           </i>
         </a>
+        <div v-if="started" class="total-time">
+          <p>You have been working for</p>
+          <h4 class="teal-text">
+            <span v-if="hour !== 0"> {{ hour }}<sup>h</sup></span>
+            <span v-if="minute !== 0"> {{ minute }}<sup>m</sup></span>
+            <span v-if="second !== 0"> {{ second }}<sup>s</sup></span>
+          </h4>
+        </div>
       </div>
       <div class="fixed-action-btn">
         <a class="btn-floating btn-large teal">
@@ -95,6 +103,9 @@ export default {
       started: false,
       setTime: 0,
       time: 0,
+      hour: 0,
+      minute: 0,
+      second: 0,
       link: 'https://www.youtube.com/watch?v=eAbDNUj8pxo',
     };
   },
@@ -102,18 +113,24 @@ export default {
     start() {
       this.interval = setInterval(() => {
         this.time++;
+        this.hour = Math.floor(this.time / 3600);
+        this.minute = Math.floor(this.time % 3600 / 60);
+        this.second = Math.floor(this.time % 3600 % 60);
       }, 1000);
       this.started = !this.started;
     },
     stop() {
       clearInterval(this.interval),
       this.time = 0,
+      this.hour = 0,
+      this.minute = 0,
+      this.second = 0,
       this.started = !this.started;
     },
   },
   watch: {
     time() {
-      if (this.time % (this.setTime * 60) === 0) {
+      if (this.time !== 0 && this.time % (this.setTime * 60) === 0) {
         window.open(this.link);
       }
     },
@@ -134,9 +151,8 @@ export default {
   margin-top: 200px;
   h4 {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 70px;
     margin-bottom: 0;
-    font-family: 'Amatic SC', cursive;
   }
   p {
     margin-top: 0;
@@ -153,9 +169,7 @@ export default {
     font-size: 20px;
   }
 }
-.modal {
-  a {
-
-  }
+.total-time {
+  margin-top: 50px !important;
 }
 </style>
