@@ -148,7 +148,7 @@ export default {
   text-align: center;
 }
 .break-time {
-  margin-top: 200px;
+  margin-top: 100px;
   h4 {
     font-weight: bold;
     font-size: 70px;
