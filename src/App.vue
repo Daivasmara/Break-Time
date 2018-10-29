@@ -6,7 +6,7 @@
           <h4 class="teal-text">Break Time</h4>
           <p>every <b class="teal-text">{{ setTime }}</b> minutes</p>
           <p class="range-field">
-            <input class="rangepicker" v-model="setTime" type="range" id="test5" min="0" max="60" />
+            <input class="rangepicker" :class="{disabled : started}" v-model="setTime" type="range" id="test5" min="0" max="60" :disabled="started"/>
           </p>
         </form>
         <a
@@ -162,6 +162,9 @@ export default {
       top: 3px;
       font-size: 35px;
       font-weight: bold;
+    }
+    .disabled {
+      cursor: not-allowed;
     }
   }
   a {
