@@ -6,7 +6,16 @@
           <h4 class="teal-text">Break Time</h4>
           <p>every <b class="teal-text">{{ setTime }}</b> minutes</p>
           <p class="range-field">
-            <input class="rangepicker" :class="{disabled : started}" v-model="setTime" type="range" id="test5" min="0" max="60" :disabled="started"/>
+            <input
+              class="rangepicker"
+              :class="{disabled : started}"
+              v-model="setTime"
+              type="range"
+              id="test5"
+              min="0"
+              max="60"
+              :disabled="started"
+            />
           </p>
         </form>
         <a
@@ -73,7 +82,12 @@
           </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat teal white-text">Close</a>
+          <a
+            href="#!"
+            class="modal-close waves-effect waves-green btn-flat teal white-text"
+          >
+            Close
+          </a>
         </div>
       </div>
 
@@ -82,7 +96,7 @@
 </template>
 
 <script>
-
+/* eslint-disable */
 document.addEventListener('DOMContentLoaded', () => {
   const elems = document.querySelectorAll('.fixed-action-btn');
   const instances = M.FloatingActionButton.init(elems, {
